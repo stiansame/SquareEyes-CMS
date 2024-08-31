@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The no 1 site for quality streaming">
+  <script src="https://kit.fontawesome.com/2072bb14b3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/wgh0tdc.css">
+  <link href="css/styles.css" rel="stylesheet">
+  <script async src="./js/Components/home.js" type="module"></script>
+  <title>SquareEyes - Home</title>
+  <!-- Hotjar Tracking Code for Site 4989517 (name missing) -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 4989517, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+</head>
+
+<body>
+  <div class="cartFunction"></div>
+  <div class="header-container">
+    <header>
+      <div class="logo"><a href="../index.html"><img src="../images/squareeyes_logoselected.svg" alt="Logo for SquareEyes website"></a></div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+
+        <ul>
+          <li>
+            <div class="menu-item active hide"><a href="../index.html">
+                <h1>home</h1>
+              </a></div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/movies.html">movies</a></div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/about.html">about</a></div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/contact.html">contact</a></div>
+          </li>
+          <li>
+            <div class="menu-item">
+              <div id="cart">
+                <span>shopping cart</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div id="counter">0</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/player.html"><span>player</span><i class="fa-regular fa-circle-play"></i></a></div>
+          </li>
+          <li>
+            <div class="menu-item" id="dp-toggle"><a href="#"><i class="fa-solid fa-user"></i></a></div>
+            <ul class="dropdown">
+              <li>
+                <div class="menu-item" id="loginBtn"><a href="#">login</a></div>
+              </li>
+              <li>
+                <div class="menu-item"><a href="../pages/mypage.html">My Page</a></div>
+              </li>
+              <li>
+                <div class="menu-item" id="logoutBtn"><a href="#">Logout</a></div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="menu-cart">
+        <div id="top-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div id="menuCounter">0</div>
+        </div>
+      </div>
+      <label for="nav-toggle" class="nav-toggle-label">
+        <i class="fas fa-bars"></i>
+        <i class="fa-solid fa-x"></i>
+      </label>
+    </header>
+  </div>
+  <div class="cartTab">
+    <h1>Shopping cart</h1>
+    <div class="cartList">
+      <!--items to cart here-->
+    </div>
+    <div class="subTotal"> Subtotal (0 items): Kr 0</div>
+    <div class="cartBtn">
+      <button class="close">Close</button>
+      <button class="checkOut" id="CO">Check Out</button>
+    </div>
+
+  </div>
+  <main>
+    <section class="hero">
+      <h1 class="hidden_header">Hero Slider</h1>
+      <div class="carousel">
+        <input type="radio" name="carousel" id="slide-btn-1" class="slide-btn" checked>
+        <input type="radio" name="carousel" id="slide-btn-2" class="slide-btn">
+        <input type="radio" name="carousel" id="slide-btn-3" class="slide-btn">
+
+        <div class="slide one">
+          <div class="slide-content">
+            <div class="heading_1">From cinema to home cinema</div>
+            <p class="desc">
+              We have the latest releases, from Hollywood blockbusters and
+              Bollywood dance-offs, to small French indie obscurities and
+              Scandinavian viking dramas
+            </p>
+            <div class="cta_button">
+              <a href="pages/movies.html">Browse</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide two">
+          <div class="slide-content">
+            <div class="heading_1">Unsurpassed quality</div>
+            <p class="desc">
+              Wheter it's Batman on your 120" home cinema, or Scream on your
+              mobile, you will always enjoy all our movies in 4K HDR/Dolby
+              Vision and Dolby Atmos!
+            </p>
+            <div class="cta_button">
+              <a href="pages/about.html">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="slide three">
+          <div class="slide-content">
+            <div class="heading_1">All the movies, all the time!</div>
+            <p class="desc">
+              Everything everywhere, all at once - and we're not just talking
+              about one of the best movies in recent memory! Enjoy thousands
+              of movies wherever, whenever!
+            </p>
+            <div class="cta_button">
+              <a href="pages/register.html">Sign up!</a>
+            </div>
+          </div>
+        </div>
+        <div class="labels">
+          <label for="slide-btn-1"></label>
+          <label for="slide-btn-2"></label>
+          <label for="slide-btn-3"></label>
+        </div>
+      </div>
+    </section>
+    <section class="featured">
+      <h1 class="hidden_header">Featured Movies</h1>
+      <div class="featured_content">
+        <!-- Random Featured Movies Here!-->>
+      </div>
+    </section>
+    <section class="banner">
+      <h1 class="hidden_header">Join us</h1>
+      <div class="cta_container">
+        <div class="cta_img"></div>
+        <div class="banner-content">
+          <div class="heading_1">Join us today!</div>
+          <p class="desc">
+            All our members enjoy a 15% discount on all purchases, both single
+            views and Buy-to-own. <br>
+            The best part? <br>
+            Membership is <b>completely free of charge</b>
+          </p>
+          <div class="cta_button">
+            <a href="pages/register.html">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="new">
+      <div class="new-arrivals">
+
+        <h1>Community favourites</h1>
+
+        <div class="comFav">
+
+        </div>
+      </div>
+    </section>
+    <section class="reviews">
+      <div class="user-reviews">
+        <h1>Latest user reviews</h1>
+        <div class="review-box">
+          <div class="review one">
+            <img class="rev_img" src="images/reviews/banner1.jpg" alt="Movie - Dunkirk">
+            <div class="heading_2">Not what I expected...</div>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="by_user">
+              <p>Reviewed by: <b>colonel_mustard69</b></p>
+            </div>
+            <div class="desc">
+              <p>
+                Dunkirk is an incredible masterpiece by director Christopher
+                Nolan. This epic war movie is a gripping, intense and
+                emotionally-charged retelling of the evacuation of Dunkirk
+                during World War II. The movie is a tribute to the courage and
+                bravery of the soldiers, who were trapped on the beaches of
+                Dunkirk, waiting for rescue.
+              </p>
+              <br>
+              <p>
+                The film’s cinematography is a work of art, and the visuals
+                are stunning. The aerial shots of the Spitfires, the sea and
+                the beaches are breathtaking. The sound design is also
+                excellent, and it adds to the immersive experience of the
+                film. The music by Hans Zimmer is a perfect accompaniment to
+                the intense action scenes.
+              </p>
+              <br>
+              <p>
+                The performances by the cast are outstanding, especially
+                considering that the film is largely dialogue-free. Tom Hardy,
+                Kenneth Branagh, Mark Rylance, and Harry Styles give
+                convincing and emotional performances that help to elevate the
+                film beyond just a typical war movie.
+              </p>
+            </div>
+            <div class="read-btn">
+              <input type="checkbox" name="review1" id="review_1" class="review_btn">
+            </div>
+          </div>
+          <div class="review two">
+            <img class="rev_img" src="images/reviews/banner2.jpg" alt="Movie - Hobbs & Shaw">
+            <div class="heading_2">Better than the original?</div>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half"></i>
+            </div>
+            <div class="by_user">
+              <p>Reviewed by: <b>Bossman_4lyf</b></p>
+            </div>
+            <div class="desc">
+              <p>
+                Hobbs & Shaw is a wildly entertaining action movie that
+                delivers on all fronts. With its explosive set pieces, witty
+                humor, and charismatic lead performances, this spin-off from
+                the Fast and Furious franchise is a thrilling and enjoyable
+                ride from start to finish.
+              </p>
+              <br>
+              <p>
+                Dwayne "The Rock" Johnson and Jason Statham are perfectly cast
+                as the titular characters, bringing their signature tough-guy
+                personas to the forefront while also displaying a great sense
+                of humor and chemistry. The action sequences are intense and
+                well-choreographed, with some truly jaw-dropping moments that
+                will leave audiences on the edge of their seats.
+              </p>
+              <br>
+              <p>
+                But what really sets Hobbs & Shaw apart is its willingness to
+                embrace its own ridiculousness. The film knows exactly what it
+                is and isn't afraid to have fun with it, resulting in a truly
+                enjoyable and entertaining experience that will leave
+                audiences grinning from ear to ear. If you're looking for a
+                fun, action-packed ride, Hobbs & Shaw is definitely worth a
+                watch.
+              </p>
+            </div>
+            <div class="read-btn">
+              <input type="checkbox" name="review2" id="review_2" class="review_btn">
+            </div>
+          </div>
+          <div class="review three">
+            <img class="rev_img" src="images/reviews/banner3.jpg" alt="Movie - Scream 2022">
+            <div class="heading_2">I screamed, but not in a good way</div>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="by_user">
+              <p>Reviewed by: <b>ye_olde_pimpernell</b></p>
+            </div>
+            <div class="desc">
+              <p>
+                Scream (2022) is a lackluster attempt at a horror film that
+                falls flat in nearly every aspect. From the uninspired writing
+                to the unimpressive performances, this film is a far cry from
+                the original Scream films that revolutionized the genre.
+              </p>
+              <br>
+              <p>
+                Firstly, the plot is unoriginal and formulaic, with the same
+                tired tropes that have been used in horror films for decades.
+                The film lacks any sense of suspense or intrigue, and the
+                twist ending is predictable and underwhelming.
+              </p>
+              <br>
+              <p>
+                The performances of the cast are forgettable, with no standout
+                performances to speak of. Even the return of some of the
+                original cast members fails to add any depth or interest to
+                the film. The dialogue is stilted and cheesy, leaving little
+                room for the actors to showcase any real talent.
+              </p>
+              <br>
+              <p>
+                The direction and cinematography are also unremarkable, with
+                no innovative or striking visuals to elevate the film beyond
+                its bland script. The jump scares are cheap and overused,
+                failing to create any genuine fear or tension.
+              </p>
+              <p>
+                In conclusion, Scream (2022) is a disappointing and
+                forgettable addition to the Scream franchise. It lacks the
+                originality and innovation that made the original films so
+                groundbreaking and fails to bring anything new to the table.
+                Horror fans looking for a thrilling and suspenseful experience
+                should look elsewhere.
+              </p>
+            </div>
+            <div class="read-btn">
+              <input type="checkbox" name="review3" id="review_3" class="review_btn">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>
+      <ul>
+        <li><a href="http://youtube.com" target="new"><img src="../images/some/Youtube.png" alt="youtube"></a></li>
+        <li><a href="http://Discord.com" target="new"><img src="../images/some/Discord.png" alt="discord"></a></li>
+        <li><a href="http://Facebook.com" target="new"><img src="../images/some/Facebook.png" alt="facebook"></a></li>
+        <li><a href="http://instagram.com" target="new"><img src="../images/some/Instagram.png" alt="instagram"></a></li>
+        <li><a href="http://snapchat.com" target="new"><img src="../images/some/SnapChat.png" alt="snapchat"></a></li>
+        <li><a href="http://twitter.com" target="new"><img src="../images/some/Twitter.png" alt="twitter"></a></li>
+      </ul>
+      <p>2023 Stian Rostad &copy;</p>
+      <p>All images found on <a href="http://www.movieposters.com" target="new">www.movieposters.com</a>
+        or <a href="http://www.cinematerial.com" target="new">www.cinematerial.com</a></p>
+      <p>All icons found on <a href="http://www.flaticon.com" target="new">www.flaticon.com</a> or <a href="http://www.fontawesome.com" target="new">www.fontawesome.com</a></p>
+    </div>
+  </footer>
+
+
+  <div class="popper"></div>
+  <!--Javascript for Modal here!-->
+  <script src="../js/modals/modalLogin.js"></script>
+
+
+</body>
+
+</html>

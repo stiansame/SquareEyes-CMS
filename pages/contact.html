@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Questions or feedback? Give it to us here!">
+  <script src="https://kit.fontawesome.com/2072bb14b3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/wgh0tdc.css">
+  <link href="../css/styles.css" rel="stylesheet">
+  <title>SquareEyes - Contact us!</title>
+  <script async src="../js/script.js" type="module"></script>
+
+
+</head>
+
+<body>
+  <div class="cartFunction"></div>
+  <div class="header-container">
+    <header>
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../images/SquareEyes_logo.svg" alt="Logo for SquareEyes website"></a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+
+        <ul>
+          <li>
+            <div class="menu-item hide"><a href="../index.html">home</a></div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/movies.html">movies</a></div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/about.html">about</a></div>
+          </li>
+          <li>
+            <div class="menu-item active"><a href="../pages/contact.html">
+                <h1>contact</h1>
+              </a></div>
+          </li>
+          <li>
+            <div class="menu-item">
+              <div id="cart">
+                <span>shopping cart</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div id="counter">0</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="menu-item"><a href="../pages/player.html"><span>player</span><i class="fa-regular fa-circle-play"></i></a></div>
+          </li>
+          <li>
+            <div class="menu-item" id="dp-toggle"><a href="#"><i class="fa-solid fa-user"></i></a></div>
+            <ul class="dropdown">
+              <li>
+                <div class="menu-item" id="loginBtn"><a href="#">login</a></div>
+              </li>
+              <li>
+                <div class="menu-item"><a href="../pages/mypage.html">My Page</a></div>
+              </li>
+              <li>
+                <div class="menu-item" id="logoutBtn"><a href="#">Logout</a></div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="menu-cart">
+        <div id="top-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div id="menuCounter">0</div>
+        </div>
+      </div>
+      <label for="nav-toggle" class="nav-toggle-label">
+        <i class="fas fa-bars"></i>
+        <i class="fa-solid fa-x"></i>
+      </label>
+    </header>
+  </div>
+  <div class="cartTab">
+    <h1>Shopping cart</h1>
+    <div class="cartList">
+      <!--items to cart here-->
+    </div>
+    <div class="subTotal"> Subtotal (0 items): Kr 0</div>
+    <div class="cartBtn">
+      <button class="close">Close</button>
+      <button class="checkOut" id="CO">Check Out</button>
+    </div>
+
+  </div>
+  <main id="contact">
+    <section class="contact-container">
+      <div class="heading_1" id="faq-header">
+        <h1>FAQ</h1>
+      </div>
+      <div class="faq-content">
+        <button class="accordion">What is the difference between View and Purchase ?</button>
+        <div class="panel">
+          <p> Viewing allows you to watch the movie as many times as you like within a 24 hour window.
+            This is similar to renting the movie, which is also reflected in the cheaper price.
+            <br>
+            Purchase means that the movie is yours, to enjoy whenever you like.
+          </p>
+        </div>
+        <button class="accordion">Why can I not get 4K resolution and/or HDR while streaming content?</button>
+        <div class="panel">
+          <p> Must use Edge, Mozilla or Safari browser, or dedicated app on desktop and handheld devices. Can also use app on Android based streaming devices. Minimum HDMI 2.0 standard for cables and
+            all connected devices. Also make sure your device is compatible with 4K and/or HDR signals.</p>
+        </div>
+
+        <button class="accordion">How do I pay with VIPPS?</button>
+        <div class="panel">
+          <p> First you need to register for a VIPPS user account. See <a href="https://vipps.no/">https://vipps.no</a> for more information.
+            Once that is done, it's as easy as registering your number and completing the purchase on your handheld device.</p>
+        </div>
+
+        <button class="accordion">Can I pay with PayPal?</button>
+        <div class="panel">
+          <p>Not currently, but we are working on it..</p>
+        </div>
+
+
+
+      </div>
+      <div class="heading_1" id="contact-header">
+        <h1>Contact us!</h1>
+      </div>
+      <div class="contact-form">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" class="form__input" autocomplete="name" required>
+          <label for="email2">E-mail</label>
+          <input type="email" name="email2" id="email2" class="form__input" autocomplete="email" required>
+          <label for="message">Message</label>
+          <textarea name="message" id="message" class="form__input" rows="5" required></textarea>
+          <input type="submit" value="Send" class="cta_button">
+        </form>
+      </div>
+
+    </section>
+
+
+  </main>
+  <footer>
+    <div>
+      <ul>
+        <li><a href="http://youtube.com" target="new"><img src="../images/some/Youtube.png" alt="youtube"></a></li>
+        <li><a href="http://Discord.com" target="new"><img src="../images/some/Discord.png" alt="discord"></a></li>
+        <li><a href="http://Facebook.com" target="new"><img src="../images/some/Facebook.png" alt="facebook"></a></li>
+        <li><a href="http://instagram.com" target="new"><img src="../images/some/Instagram.png" alt="instagram"></a></li>
+        <li><a href="http://snapchat.com" target="new"><img src="../images/some/SnapChat.png" alt="snapchat"></a></li>
+        <li><a href="http://twitter.com" target="new"><img src="../images/some/Twitter.png" alt="twitter"></a></li>
+      </ul>
+      <p>2023 Stian Rostad &copy;</p>
+      <p>All images found on <a href="http://www.movieposters.com" target="new">www.movieposters.com</a>
+        or <a href="http://www.cinematerial.com" target="new">www.cinematerial.com</a></p>
+      <p>All icons found on <a href="http://www.flaticon.com" target="new">www.flaticon.com</a> or <a href="http://www.fontawesome.com" target="new">www.fontawesome.com</a></p>
+    </div>
+  </footer>
+
+  <div class="popper"></div>
+  <!--Javascript for Modal here!-->
+  <script src="../js/modals/modalLogin.js"></script>
+
+</body>
+
+</html>

@@ -6,6 +6,7 @@ import { url } from "../script.js";
 import { getExistingFavs } from "./favFunctions.js";
 import { handleClick } from "./favFunctions.js";
 import { getFavs } from "./favourites.js";
+
 // import { getLibrary } from "./library.js";
 
 //Call the API to get all the movies
@@ -19,7 +20,8 @@ export async function getMovies() {
     resultsContainer.innerHTML = "";
     // favouritesContainer.innerHTML = "";
 
-    const movies = json.data;
+    const movies = json;
+    console.log({ movies });
 
     movies.forEach(function (movie) {
       let cssClass = "far";
@@ -33,8 +35,8 @@ export async function getMovies() {
       }
 
       resultsContainer.innerHTML += `<div class="movie">
-                                      <i class="${cssClass} fa-heart" data-id="${movie.id}" data-name="${movie.title}" data-cover="${movie.image.url}"></i>
-                                        <a href ="../pages/movie_details2.html?id=${movie.id}"><img src="${movie.image.url}" alt="${movie.image.alt}"></a>
+                                      <i class="${cssClass} fa-heart" data-id="${movie.id}" data-name="${movie.name}" data-cover="${movie.images[0].src}"></i>
+                                        <a href ="../pages/movie_details2.html?id=${movie.id}"><img src="${movie.images[0].src}" alt="${movie.images[0].alt}"></a>
                                         </div> `;
     });
     const favButtons = document.querySelectorAll(".movie i");

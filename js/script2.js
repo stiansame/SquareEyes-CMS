@@ -1,4 +1,5 @@
-const url5 = "https://stianrostad.no/wordpress/wp-json/wc/store/products";
+export const url5 =
+  "https://stianrostad.no/wordpress/wp-json/wc/store/products?per_page=50";
 
 async function getProducts() {
   try {

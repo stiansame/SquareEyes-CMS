@@ -3,7 +3,8 @@ import { createMessage } from "./Components/Message.js";
 import { initialize } from "./Components/app.js";
 
 //URL for API-call
-export const url = "https://v2.api.noroff.dev/square-eyes";
+export const url =
+  "https://stianrostad.no/wordpress/wp-json/wc/store/products?per_page=50";
 
 //Define DIV to display API-call results
 export const resultsContainer = document.querySelector(".movie-carousel");

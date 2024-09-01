@@ -35,7 +35,7 @@ export function getFeatured(movies) {
                                         <div class="feature-content">
                                         <div class="heading_1"><h3>${shuffledArray[i].name}</h3></div>
                                         <div class="rating"> Rating: ${shuffledArray[i].attributes[0].terms[0].name}</div>
-                                        <div class="desc"><p> ${shuffledArray[i].description}</p></div>
+                                        <div class="desc"><p> ${shuffledArray[i].short_description}</p></div>
                                         <div class="cta_button">
                                         <a href="/pages/movie_details2.html?id=${shuffledArray[i].id}"> Read More!</a>
                                         </div>
@@ -54,12 +54,12 @@ function getApiFav(movies) {
   comFav.innerHTML = "";
 
   for (let i = 0; i < movies.length; i++) {
-    if (!movies[i].favorite) {
+    if (!movies[i].featured) {
       continue;
     }
     comFav.innerHTML += `<div class="movie">
                            <a href ="/pages/movie_details2.html?id=${movies[i].id}">
-                           <img src="${movies[i].image.url}" alt="${movies[i].title}">
+                           <img src="${movies[i].images[0].src}" alt="${movies[i].name}">
                            </a>
                             </div>`;
   }

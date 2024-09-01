@@ -19,18 +19,19 @@ const params = new URLSearchParams(queryString);
 
 const movieId = params.get("id");
 
-const Url2 = "https://v2.api.noroff.dev/square-eyes/" + movieId;
+const Url2 =
+  "https://stianrostad.no/wordpress/wp-json/wc/store/products/" + movieId;
 
 export async function getDetails() {
   try {
     const response = await fetch(Url2);
     const json = await response.json();
-    const details = json.data;
-
+    const details = json;
+    console.log({ details });
     createDetails(details);
     checkForDetails(details);
     storeDetail(details);
-    applyFilter(details);
+    // applyFilter(details);
   } catch (error) {
     resultsContainer.innerHTML = message;
     document.title = "Nope! Didn't catch that...";
@@ -41,16 +42,18 @@ getDetails();
 
 function createDetails(details) {
   posterContainer.innerHTML = `<div class="posterDetails">
-   <img class="posterImg" src="${details.image.url}" alt ="${details.image.alt}">
+   <img class="posterImg" src="${details.images[0].src}" alt ="${details.images[0].alt}">
    </div>`;
 
-  document.title = `${details.title} | Details`;
+  document.title = `${details.name} | Details`;
 
-  resultsContainer.innerHTML = `<div class="heading_1"> ${details.title}
+  resultsContainer.innerHTML = `<div class="heading_1"> ${details.name}
    </div>
     <div class="meta">
-    Genre: ${details.genre} | Released: ${details.released}
-     |  Rating: ${details.rating}
+    Genre: ${details.categories} | Released: ${
+    details.attributes[1].terms[0].name
+  }
+     |  Rating: ${details.attributes[0].terms[0].name}
     </div>
    <div class="desc">
     <p><B>Description:</b></p><p>${details.description}</p>
@@ -64,18 +67,18 @@ function createDetails(details) {
 }
 
 function price(details) {
-  const onSale = details.onSale;
+  const onSale = details.on_sale;
   let newPrice;
   if (!onSale) {
-    newPrice = details.price;
+    newPrice = details.prices.regular_price;
   } else {
-    newPrice = details.discountedPrice;
+    newPrice = details.prices.price;
   }
   return newPrice;
 }
 
 function onSale(details) {
-  const onDiscount = details.onSale;
+  const onDiscount = details.on_sale;
 
   let discount;
   if (!onDiscount) {
@@ -84,7 +87,7 @@ function onSale(details) {
     discount =
       "<div class='discount'><i class='fa-solid fa-certificate'></i><span>On Sale!</span></div>" +
       "<span class='regPrice'> Ord. price: Kr " +
-      details.price;
+      details.prices.regular_price;
     +"</span";
   }
   return discount;
@@ -107,7 +110,7 @@ export function checkForDetails() {
 
 //get suggestions
 
-async function applyFilter(details) {
+/* async function applyFilter(details) {
   const filter = details.genre;
   const response = await fetch(url);
   const json = await response.json();
@@ -134,4 +137,4 @@ async function applyFilter(details) {
                            </a>
                             </div>`;
   });
-}
+} */

@@ -50,7 +50,7 @@ function createDetails(details) {
   resultsContainer.innerHTML = `<div class="heading_1"> ${details.name}
    </div>
     <div class="meta">
-    Genre: ${details.categories} | Released: ${
+    Genre: ${details.categories[0].name} | Released: ${
     details.attributes[1].terms[0].name
   }
      |  Rating: ${details.attributes[0].terms[0].name}

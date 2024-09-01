@@ -6,7 +6,7 @@ const comFav = document.querySelector(".comFav");
 async function getAllMovies() {
   const response = await fetch(url);
   const json = await response.json();
-  const movies = json.data;
+  const movies = json;
 
   getFeatured(movies);
   getApiFav(movies);
@@ -30,11 +30,11 @@ export function getFeatured(movies) {
   const shuffledArray = shuffle(myArray);
 
   for (let i = 0; i < shuffledArray.length; i++) {
-    featuredContainer.innerHTML += `<div class="feature" style="background-image:url(${shuffledArray[i].image.url})">
+    featuredContainer.innerHTML += `<div class="feature" style="background-image:url(${shuffledArray[i].images[0].src})">
                                         
                                         <div class="feature-content">
-                                        <div class="heading_1"><h3>${shuffledArray[i].title}</h3></div>
-                                        <div class="rating"> Rating: ${shuffledArray[i].rating}</div>
+                                        <div class="heading_1"><h3>${shuffledArray[i].name}</h3></div>
+                                        <div class="rating"> Rating: ${shuffledArray[i].attributes[0].terms[0].name}</div>
                                         <div class="desc"><p> ${shuffledArray[i].description}</p></div>
                                         <div class="cta_button">
                                         <a href="/pages/movie_details2.html?id=${shuffledArray[i].id}"> Read More!</a>

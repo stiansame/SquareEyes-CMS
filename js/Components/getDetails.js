@@ -27,7 +27,7 @@ export async function getDetails() {
     const response = await fetch(Url2);
     const json = await response.json();
     const details = json;
-    console.log({ details });
+
     createDetails(details);
     checkForDetails(details);
     storeDetail(details);
@@ -41,6 +41,10 @@ export async function getDetails() {
 getDetails();
 
 function createDetails(details) {
+  const categories = details.categories;
+  const categoryString = categories.map((cat) => cat.name).join(" | ");
+  console.log({ categoryString });
+
   posterContainer.innerHTML = `<div class="posterDetails">
    <img class="posterImg" src="${details.images[0].src}" alt ="${details.images[0].alt}">
    </div>`;
@@ -50,7 +54,7 @@ function createDetails(details) {
   resultsContainer.innerHTML = `<div class="heading_1"> ${details.name}
    </div>
     <div class="meta">
-    Genre: ${details.categories[0].name} | Released: ${
+    <p>Genre: ${categoryString} </p> Released: ${
     details.attributes[1].terms[0].name
   }
      |  Rating: ${details.attributes[0].terms[0].name}
@@ -92,6 +96,14 @@ function onSale(details) {
   }
   return discount;
 }
+
+/* function displayNames(array) {
+  // Loop through each element in the array
+  for (let i = 0; i < array.length; i++) {
+    // Access the name property and display it
+    console.log(array[i].name);
+  }
+} */
 
 //Set details to SessionStorage
 function storeDetail(sessionDetails) {

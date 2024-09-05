@@ -31,7 +31,7 @@ export async function getDetails() {
     createDetails(details);
     checkForDetails(details);
     storeDetail(details);
-    // applyFilter(details);
+    applyFilter(details);
   } catch (error) {
     resultsContainer.innerHTML = message;
     document.title = "Nope! Didn't catch that...";
@@ -97,14 +97,6 @@ function onSale(details) {
   return discount;
 }
 
-/* function displayNames(array) {
-  // Loop through each element in the array
-  for (let i = 0; i < array.length; i++) {
-    // Access the name property and display it
-    console.log(array[i].name);
-  }
-} */
-
 //Set details to SessionStorage
 function storeDetail(sessionDetails) {
   sessionStorage.setItem("movieDetails", JSON.stringify(sessionDetails));
@@ -122,31 +114,44 @@ export function checkForDetails() {
 
 //get suggestions
 
-/* async function applyFilter(details) {
-  const filter = details.genre;
+async function applyFilter(movie) {
   const response = await fetch(url);
   const json = await response.json();
-  const movies = json.data;
-  console.log(movies);
-  console.log(filter);
+  const movies = json;
+  const category = movie.categories;
+  const filter = [];
 
-  const filteredMovies = movies.filter(filterMovies);
+  console.log({ movies });
+  console.log({ category });
 
-  function filterMovies(movie) {
-    if (movie.genre === filter) {
-      return true;
-    }
+  for (let i = 0; i < category.length; i++) {
+    filter.push(category[i].name);
   }
-  console.log(filteredMovies);
+  console.log({ filter });
 
   //Empty Suggestions
-  SuggestionContainer.innerHTML = "";
+  /*   SuggestionContainer.innerHTML = "";
 
   filteredMovies.forEach((movie) => {
     SuggestionContainer.innerHTML += `<div class="movie">
                            <a href ="/pages/movie_details2.html?id=${movie.id}">
-                           <img src="${movie.image.url}" alt="${movie.title}">
+                           <img src="${movie.images[0].src}" alt="${movie.name}">
                            </a>
                             </div>`;
-  });
-} */
+  }); */
+}
+
+// const filter = category.map((category) => category.name);
+
+// const filter = [];
+// console.log(movies);
+// console.log({ filter });
+// console.log(movie.categories);
+// const filteredMovies = movies.filter(filterMovies);
+
+// function filterMovies(movie) {
+//   if (movie.categories === filter) {
+//     return true;
+//   }
+// }
+// console.log({ filteredMovies });

@@ -114,6 +114,7 @@ main {
   font-family: "niveau-grotesk", sans-serif;
   font-size: clamp(1.6rem, 6vw, 3rem);
   font-weight: bold;
+  display: flex;
 }
 
 .heading_2 {

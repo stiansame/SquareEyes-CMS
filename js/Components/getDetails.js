@@ -8,6 +8,8 @@ const posterContainer = document.querySelector(".poster");
 
 const SuggestionContainer = document.querySelector(".byGenre");
 
+const genreContainer = document.querySelector(".genreTags");
+
 export const resultsContainer = document.querySelector(
   ".description-container"
 );
@@ -73,6 +75,8 @@ function createDetails(details) {
     <div class="cta_button PushToCart">
     Add to cart</div>
     </div>`;
+
+  genreContainer.innerHTML = "&nbsp" + categoryString + ":";
 }
 
 function price(details) {

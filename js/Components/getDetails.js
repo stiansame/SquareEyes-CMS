@@ -19,6 +19,9 @@ const params = new URLSearchParams(queryString);
 
 const movieId = params.get("id");
 
+// Categories to filter on (using slugs)
+const filter = [];
+
 const Url2 =
   "https://stianrostad.no/wordpress/wp-json/wc/store/products/" + movieId;
 
@@ -31,7 +34,9 @@ export async function getDetails() {
     createDetails(details);
     checkForDetails(details);
     storeDetail(details);
-    applyFilter(details);
+    renderFilter(details);
+    filterMovies();
+    // applyFilter(details);
   } catch (error) {
     resultsContainer.innerHTML = message;
     document.title = "Nope! Didn't catch that...";
@@ -112,25 +117,40 @@ export function checkForDetails() {
   }
 }
 
-//get suggestions
-
-async function applyFilter(movie) {
-  const response = await fetch(url);
-  const json = await response.json();
-  const movies = json;
+//render Filter
+async function renderFilter(movie) {
   const category = movie.categories;
-  const filter = [];
 
-  console.log({ movies });
   console.log({ category });
 
   for (let i = 0; i < category.length; i++) {
-    filter.push(category[i].name);
+    filter.push(category[i].slug);
   }
   console.log({ filter });
+}
+
+//get suggestions
+
+async function filterMovies() {
+  const response = await fetch(url);
+  const data = await response.json();
+  const movies = data;
+  console.log({ movies });
+
+  // Function to filter movies based on categories
+  function filterMoviesByCategories(moviesArray, categorySlugs) {
+    return moviesArray.filter((movie) =>
+      movie.categories.some((category) => categorySlugs.includes(category.slug))
+    );
+  }
+
+  // Usage
+  const filteredMovies = filterMoviesByCategories(movies, filter);
+
+  console.log({ filteredMovies });
 
   //Empty Suggestions
-  /*   SuggestionContainer.innerHTML = "";
+  SuggestionContainer.innerHTML = "";
 
   filteredMovies.forEach((movie) => {
     SuggestionContainer.innerHTML += `<div class="movie">
@@ -138,20 +158,5 @@ async function applyFilter(movie) {
                            <img src="${movie.images[0].src}" alt="${movie.name}">
                            </a>
                             </div>`;
-  }); */
+  });
 }
-
-// const filter = category.map((category) => category.name);
-
-// const filter = [];
-// console.log(movies);
-// console.log({ filter });
-// console.log(movie.categories);
-// const filteredMovies = movies.filter(filterMovies);
-
-// function filterMovies(movie) {
-//   if (movie.categories === filter) {
-//     return true;
-//   }
-// }
-// console.log({ filteredMovies });

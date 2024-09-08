@@ -36,12 +36,11 @@ export async function getDetails() {
     const details = json;
 
     rFilter.push(details.id);
-    console.log({ rFilter });
+    console.log({ details });
 
     const reviewResponse = await fetch(reviewUrl);
     const reviewJson = await reviewResponse.json();
     const allReviews = reviewJson;
-    console.log({ allReviews });
 
     createDetails(details);
     checkForDetails(details);
@@ -71,9 +70,9 @@ function createDetails(details) {
    </div>
     <div class="meta">
     <p>Genre: ${categoryString} </p> Released: ${
-    details.attributes[1].terms[0].name
+    details.attributes[0].terms[0].name
   }
-     |  Rating: ${details.attributes[0].terms[0].name}
+     |  Rating: ${details.average_rating}
     </div>
    <div class="desc">
     <p><B>Description:</b></p><p>${details.description}</p>
@@ -175,7 +174,6 @@ export function getReviews(allReviews) {
 
   const reviewFilter = parseInt(rFilter);
   const filteredReviews = filterByID(reviewFilter);
-  console.log({ filteredReviews });
 
   //Empty reviews
   if (filteredReviews < 1) {

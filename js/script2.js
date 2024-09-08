@@ -19,7 +19,6 @@ async function getProducts() {
       headers: headers,
     });
     const getResults = await response5.json();
-    console.log({ getResults });
   } catch (error) {
     console.log(error);
   }

@@ -24,11 +24,10 @@ async function getAllMovies() {
   });
   const json = await response.json();
   const movies = json;
-
+  console.log({ movies });
   const reviewResponse = await fetch(reviewUrl);
   const reviewJson = await reviewResponse.json();
   const allReviews = reviewJson;
-  console.log({ allReviews });
 
   getFeatured(movies);
   getApiFav(movies);
@@ -57,7 +56,7 @@ export function getFeatured(movies) {
                                         
                                         <div class="feature-content">
                                         <div class="heading_1"><h3>${shuffledArray[i].name}</h3></div>
-                                        <div class="rating"> Rating: ${shuffledArray[i].attributes[0].options}</div>
+                                        <div class="rating"> Rating: ${shuffledArray[i].average_rating}</div>
                                         <div class="desc"><p> ${shuffledArray[i].short_description}</p></div>
                                         <div class="cta_button">
                                         <a href="/pages/movie_details2.html?id=${shuffledArray[i].id}"> Read More!</a>
@@ -102,8 +101,6 @@ function lastReviews(allReviews) {
   // Example usage with JSON data (assuming the JSON reviews array is called 'data'):
   const data = allReviews;
   const lastThreeReviews = getLastThreeReviews(data);
-
-  console.log(lastThreeReviews);
 
   lastThreeReviews.forEach((review) => {
     lastReviewsContainer.innerHTML += `<div class="review">

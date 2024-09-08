@@ -6,6 +6,9 @@ import { initialize } from "./Components/app.js";
 export const url =
   "https://stianrostad.no/wordpress/wp-json/wc/store/products?per_page=50";
 
+export const reviewUrl =
+  "https://stianrostad.no/wordpress/wp-json/wc/store/products/reviews?per_page=50";
+
 //Define DIV to display API-call results
 export const resultsContainer = document.querySelector(".movie-carousel");
 export const favouritesContainer = document.querySelector(".favourites");

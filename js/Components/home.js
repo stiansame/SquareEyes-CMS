@@ -1,4 +1,5 @@
 import { url5 } from "../script2.js";
+import { url } from "../script.js";
 
 const featuredContainer = document.querySelector(".featured_content");
 const comFav = document.querySelector(".comFav");

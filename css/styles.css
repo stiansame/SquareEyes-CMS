@@ -882,9 +882,10 @@ footer img:hover {
   gap: 1rem;
 }
 
+.review-container,
 .review-box {
   display: grid;
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(auto, auto);
   align-items: start;
   gap: 1rem;
 }
@@ -1149,7 +1150,11 @@ form {
   background: var(--menu-bg);
   padding: 1rem;
   display: grid;
-  grid-template-rows: minmax(auto, 22rem) repeat(6, auto);
+  grid-template-rows: minmax(auto, 22rem) repeat(2, auto);
+}
+
+.review-container {
+  grid-area: 3/2/4/3;
 }
 
 .meta {
@@ -1667,6 +1672,7 @@ form {
 
   /*review styling*/
 
+  .review-container,
   .review-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1763,7 +1769,7 @@ form {
 
   .details-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(400px, auto) repeat(5, auto);
+    grid-template-rows: minmax(400px, auto) repeat(2, auto);
     gap: 1rem;
   }
 

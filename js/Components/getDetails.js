@@ -3,11 +3,12 @@
 //imports
 import { createMessage } from "../Components/Message.js";
 import { url } from "../script.js";
+import { reviewUrl } from "../script.js";
 
 const posterContainer = document.querySelector(".poster");
 
 const SuggestionContainer = document.querySelector(".byGenre");
-
+const reviewContainer = document.querySelector(".review-container");
 const genreContainer = document.querySelector(".genreTags");
 
 export const resultsContainer = document.querySelector(
@@ -33,12 +34,17 @@ export async function getDetails() {
     const json = await response.json();
     const details = json;
 
+    const reviewResponse = await fetch(reviewUrl);
+    const reviewJson = await reviewResponse.json();
+    const allReviews = reviewJson;
+    console.log({ allReviews });
+
     createDetails(details);
     checkForDetails(details);
     storeDetail(details);
     renderFilter(details);
+    getReviews(allReviews);
     filterMovies();
-    // applyFilter(details);
   } catch (error) {
     resultsContainer.innerHTML = message;
     document.title = "Nope! Didn't catch that...";
@@ -50,7 +56,6 @@ getDetails();
 function createDetails(details) {
   const categories = details.categories;
   const categoryString = categories.map((cat) => cat.name).join(" | ");
-  console.log({ categoryString });
 
   posterContainer.innerHTML = `<div class="posterDetails">
    <img class="posterImg" src="${details.images[0].src}" alt ="${details.images[0].alt}">
@@ -125,12 +130,9 @@ export function checkForDetails() {
 async function renderFilter(movie) {
   const category = movie.categories;
 
-  console.log({ category });
-
   for (let i = 0; i < category.length; i++) {
     filter.push(category[i].slug);
   }
-  console.log({ filter });
 }
 
 //get suggestions
@@ -139,7 +141,6 @@ async function filterMovies() {
   const response = await fetch(url);
   const data = await response.json();
   const movies = data;
-  console.log({ movies });
 
   // Function to filter movies based on categories
   function filterMoviesByCategories(moviesArray, categorySlugs) {
@@ -147,11 +148,7 @@ async function filterMovies() {
       movie.categories.some((category) => categorySlugs.includes(category.slug))
     );
   }
-
-  // Usage
   const filteredMovies = filterMoviesByCategories(movies, filter);
-
-  console.log({ filteredMovies });
 
   //Empty Suggestions
   SuggestionContainer.innerHTML = "";
@@ -162,5 +159,21 @@ async function filterMovies() {
                            <img src="${movie.images[0].src}" alt="${movie.name}">
                            </a>
                             </div>`;
+  });
+}
+
+function getReviews(allReviews) {
+  //Empty reviews
+  reviewContainer.innerHTML = "";
+  allReviews.forEach((review) => {
+    reviewContainer.innerHTML += `<div class="review">
+                                  <img class="rev_img" src="${review.product_image.src}">
+                                      <div class="rating"> <p>Rating: ${review.rating}</p></div>
+                                      <div class="by_user"><p> reviewed by: <b>${review.reviewer}</b></p></div>
+                                      <div class="desc">${review.review}</div>
+                                      <div class="read-btn">
+              <input type="checkbox" name="${review.id}" id="${review.id}" class="review_btn">
+            </div>
+                                      </div>`;
   });
 }

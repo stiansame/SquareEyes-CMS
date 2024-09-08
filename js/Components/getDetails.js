@@ -8,7 +8,7 @@ import { reviewUrl } from "../script.js";
 const posterContainer = document.querySelector(".poster");
 
 const SuggestionContainer = document.querySelector(".byGenre");
-const reviewContainer = document.querySelector(".review-container");
+export const reviewContainer = document.querySelector(".review-container");
 const genreContainer = document.querySelector(".genreTags");
 
 export const resultsContainer = document.querySelector(
@@ -26,7 +26,7 @@ const movieId = params.get("id");
 const filter = [];
 const rFilter = [];
 
-const Url2 =
+export const Url2 =
   "https://stianrostad.no/wordpress/wp-json/wc/store/products/" + movieId;
 
 export async function getDetails() {
@@ -168,7 +168,7 @@ async function filterMovies() {
 
 //REVIEWS
 
-function getReviews(allReviews) {
+export function getReviews(allReviews) {
   function filterByID(reviewFilter) {
     return allReviews.filter((review) => review.product_id === reviewFilter);
   }

@@ -1,8 +1,10 @@
 import { url5 } from "../script2.js";
 import { url } from "../script.js";
+import { reviewUrl } from "../script.js";
 
 const featuredContainer = document.querySelector(".featured_content");
 const comFav = document.querySelector(".comFav");
+const lastReviewsContainer = document.querySelector(".review-box");
 
 // Your API credentials
 const username = "ck_00e515882b7ce6e5c59d7f70b3faaec08a6a6ad4";
@@ -23,8 +25,14 @@ async function getAllMovies() {
   const json = await response.json();
   const movies = json;
 
+  const reviewResponse = await fetch(reviewUrl);
+  const reviewJson = await reviewResponse.json();
+  const allReviews = reviewJson;
+  console.log({ allReviews });
+
   getFeatured(movies);
   getApiFav(movies);
+  lastReviews(allReviews);
 }
 
 getAllMovies();
@@ -78,5 +86,34 @@ function getApiFav(movies) {
                            </a>
                             </div>`;
   }
-  console.log({ movies });
+}
+
+function lastReviews(allReviews) {
+  function getLastThreeReviews(reviews) {
+    // Sort reviews by 'date_created' in descending order (most recent first)
+    const sortedReviews = reviews.sort(
+      (a, b) => new Date(b.date_created) - new Date(a.date_created)
+    );
+
+    // Get the last three reviews
+    return sortedReviews.slice(0, 3);
+  }
+
+  // Example usage with JSON data (assuming the JSON reviews array is called 'data'):
+  const data = allReviews;
+  const lastThreeReviews = getLastThreeReviews(data);
+
+  console.log(lastThreeReviews);
+
+  lastThreeReviews.forEach((review) => {
+    lastReviewsContainer.innerHTML += `<div class="review">
+                                  <img class="rev_img" src="${review.product_image.src}">
+                                      <div class="rating"> <p>Rating: ${review.rating}</p></div>
+                                      <div class="by_user"><p> reviewed by: <b>${review.reviewer}</b></p></div>
+                                      <div class="desc">${review.review}</div>
+                                      <div class="read-btn">
+                                      <input type="checkbox" name="${review.id}" id="${review.id}" class="review_btn">
+                                      </div>
+                                      </div>`;
+  });
 }

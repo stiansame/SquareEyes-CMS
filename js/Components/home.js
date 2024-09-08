@@ -104,7 +104,9 @@ function lastReviews(allReviews) {
 
   lastThreeReviews.forEach((review) => {
     lastReviewsContainer.innerHTML += `<div class="review">
+                                  <a href ="/pages/movie_details2.html?id=${review.product_id}">
                                   <img class="rev_img" src="${review.product_image.src}">
+                                  </a>
                                       <div class="rating"> <p>Rating: ${review.rating}</p></div>
                                       <div class="by_user"><p> reviewed by: <b>${review.reviewer}</b></p></div>
                                       <div class="desc">${review.review}</div>

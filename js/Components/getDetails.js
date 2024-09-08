@@ -179,7 +179,7 @@ function getReviews(allReviews) {
 
   //Empty reviews
   if (filteredReviews < 1) {
-    reviewContainer.innerHTML = "...No reviews yet";
+    reviewContainer.innerHTML = "<p>...No reviews yet :(</p>";
   } else {
     reviewContainer.innerHTML = "";
   }

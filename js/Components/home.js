@@ -87,9 +87,10 @@ function getApiFav(movies) {
   }
 }
 
+//LAST REVIEWS
+
 function lastReviews(allReviews) {
   function getLastThreeReviews(reviews) {
-    // Sort reviews by 'date_created' in descending order (most recent first)
     const sortedReviews = reviews.sort(
       (a, b) => new Date(b.date_created) - new Date(a.date_created)
     );
@@ -98,7 +99,6 @@ function lastReviews(allReviews) {
     return sortedReviews.slice(0, 3);
   }
 
-  // Example usage with JSON data (assuming the JSON reviews array is called 'data'):
   const data = allReviews;
   const lastThreeReviews = getLastThreeReviews(data);
 

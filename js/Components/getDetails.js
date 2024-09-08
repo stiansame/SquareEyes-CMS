@@ -36,7 +36,6 @@ export async function getDetails() {
     const details = json;
 
     rFilter.push(details.id);
-    console.log({ details });
 
     const reviewResponse = await fetch(reviewUrl);
     const reviewJson = await reviewResponse.json();
@@ -175,13 +174,25 @@ export function getReviews(allReviews) {
   const reviewFilter = parseInt(rFilter);
   const filteredReviews = filterByID(reviewFilter);
 
+  function getLastThreeReviews(reviews) {
+    const sortedReviews = reviews.sort(
+      (a, b) => new Date(b.date_created) - new Date(a.date_created)
+    );
+
+    // Get the last three reviews
+    return sortedReviews.slice(0, 3);
+  }
+
+  const data = filteredReviews;
+  const lastThreeReviews = getLastThreeReviews(data);
+  console.log({ lastThreeReviews });
   //Empty reviews
   if (filteredReviews < 1) {
     reviewContainer.innerHTML = "<p>...No reviews yet :(</p>";
   } else {
     reviewContainer.innerHTML = "";
   }
-  filteredReviews.forEach((review) => {
+  lastThreeReviews.forEach((review) => {
     reviewContainer.innerHTML += `<div class="review">
                                   <img class="rev_img" src="${review.product_image.src}">
                                       <div class="rating"> <p>Rating: ${review.rating}</p></div>

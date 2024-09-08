@@ -32,13 +32,13 @@ const addToCart = (mDetails) => {
   localStorage.setItem("shoppingCart", JSON.stringify(mDetails));
 };
 
-function cartHandler() {
+/* function cartHandler() {
   const mDetails = checkForDetails();
 
-  const id = mDetails.id;
-  const price = mDetails.discountedPrice;
-  const title = mDetails.title;
-  const cover = mDetails.image.url;
+  const id = "" + mDetails.id;
+  const price = "" + mDetails.prices.price;
+  const title = mDetails.name;
+  const cover = mDetails.images[0].src;
   const amount = 1;
 
   const existingCart = checkCart();
@@ -83,7 +83,7 @@ const addCartToHTML = () => {
     });
   }
   // cartIconCounter.innerText = totalQuantity;
-};
+}; */
 
 function checkCart() {
   const currentCart = localStorage.getItem("shoppingCart");

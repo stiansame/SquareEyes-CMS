@@ -36,7 +36,7 @@ export async function getMovies() {
 
       resultsContainer.innerHTML += `<div class="movie">
                                       <i class="${cssClass} fa-heart" data-id="${movie.id}" data-name="${movie.name}" data-cover="${movie.images[0].src}"></i>
-                                        <a href ="../pages/movie_details2.html?id=${movie.id}"><img src="${movie.images[0].src}" alt="${movie.images[0].alt}"></a>
+                                        <a href ="../pages/movie_details2.html?id=${movie.id}"><img src="${movie.images[0].src}" alt="${movie.name}"></a>
                                         </div> `;
     });
     const favButtons = document.querySelectorAll(".movie i");

@@ -2,7 +2,8 @@
 // import { url } from "../script.js";
 
 //GET ELEMENTS
-const apiUrl = "https://v2.api.noroff.dev/square-eyes";
+const apiUrl =
+  "https://stianrostad.no/wordpress/wp-json/wc/store/products?per_page=50";
 const addToCartParentEL = document.querySelector(".cartFunction");
 const cartEl = document.querySelector("#cart");
 const menuCartEl = document.querySelector("#top-cart");
@@ -52,6 +53,7 @@ addToCartParentEL.addEventListener("click", (event) => {
   if (locateClick.classList.contains("PushToCart")) {
     let product_id = locateClick.parentElement.dataset.id;
     placeInCart(product_id);
+    console.log(product_id);
   }
 });
 
@@ -142,17 +144,19 @@ const renderCart = () => {
       const newCart = document.createElement("div");
       newCart.classList.add("cartItem");
       newCart.dataset.id = cartItems.product_id;
-      let positionProduct = products.findIndex(
-        (vv) => vv.id === cartItems.product_id
-      );
+      let mId = parseInt(cartItems.product_id);
+      let positionProduct = products.findIndex((vv) => vv.id === mId);
       let info = products[positionProduct];
+      console.log({ info });
+      console.log({ mId });
       newCart.innerHTML = `<div class="movie">
                           <a href ="../pages/movie_details2.html?id=${info.id}">   
-                          <img src="${info.image.url}" alt=""></a>
+                          <img src="${info.images[0].src}" alt=""></a>
                           <div class="minus"> X </div>
                           </div>
-                          <div class="title">${info.title}</div>
-                          <div class="price"><b>Price:</b>Kr ${info.discountedPrice}</div>
+                          <div class="title">${info.name}</div>
+                          <div class="price"><b>Price:</b>Kr ${info.prices.price}                
+                          </div>
                           `;
       listCartHTML.appendChild(newCart);
     });
@@ -167,10 +171,11 @@ function renderTotal() {
     tItems = 0;
 
   cartItems.forEach((cartItems) => {
-    let pP2 = products.findIndex((val) => val.id === cartItems.product_id);
+    let cId = parseInt(cartItems.product_id);
+    let pP2 = products.findIndex((val) => val.id === cId);
     let cInfo = products[pP2];
-
-    tPrice += cInfo.discountedPrice;
+    console.log({ cInfo });
+    tPrice += parseInt(cInfo.prices.price);
     tItems += cartItems.quantity;
   });
 
@@ -193,7 +198,7 @@ function disableCheckOut() {
 export async function initialize() {
   const apiCall = await fetch(apiUrl);
   const apiJSON = await apiCall.json();
-  const apiProducts = apiJSON.data;
+  const apiProducts = apiJSON;
   products = apiProducts;
 
   //GET CART FROM LOCALSTORAGE
@@ -201,7 +206,7 @@ export async function initialize() {
     cartItems = JSON.parse(localStorage.getItem("inCart"));
     renderCart();
   }
-  //   console.log("apiProducts: ", apiProducts);
+  // console.log("apiProducts: ", apiProducts);
 }
 
 initialize();

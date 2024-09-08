@@ -24,6 +24,7 @@ const movieId = params.get("id");
 
 // Categories to filter on (using slugs)
 const filter = [];
+const rFilter = [];
 
 const Url2 =
   "https://stianrostad.no/wordpress/wp-json/wc/store/products/" + movieId;
@@ -33,6 +34,9 @@ export async function getDetails() {
     const response = await fetch(Url2);
     const json = await response.json();
     const details = json;
+
+    rFilter.push(details.id);
+    console.log({ rFilter });
 
     const reviewResponse = await fetch(reviewUrl);
     const reviewJson = await reviewResponse.json();
@@ -162,18 +166,32 @@ async function filterMovies() {
   });
 }
 
+//REVIEWS
+
 function getReviews(allReviews) {
+  function filterByID(reviewFilter) {
+    return allReviews.filter((review) => review.product_id === reviewFilter);
+  }
+
+  const reviewFilter = parseInt(rFilter);
+  const filteredReviews = filterByID(reviewFilter);
+  console.log({ filteredReviews });
+
   //Empty reviews
-  reviewContainer.innerHTML = "";
-  allReviews.forEach((review) => {
+  if (filteredReviews < 1) {
+    reviewContainer.innerHTML = "...No reviews yet";
+  } else {
+    reviewContainer.innerHTML = "";
+  }
+  filteredReviews.forEach((review) => {
     reviewContainer.innerHTML += `<div class="review">
                                   <img class="rev_img" src="${review.product_image.src}">
                                       <div class="rating"> <p>Rating: ${review.rating}</p></div>
                                       <div class="by_user"><p> reviewed by: <b>${review.reviewer}</b></p></div>
                                       <div class="desc">${review.review}</div>
                                       <div class="read-btn">
-              <input type="checkbox" name="${review.id}" id="${review.id}" class="review_btn">
-            </div>
+                                      <input type="checkbox" name="${review.id}" id="${review.id}" class="review_btn">
+                                      </div>
                                       </div>`;
   });
 }

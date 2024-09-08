@@ -1154,6 +1154,10 @@ form {
 }
 
 .review-container {
+  grid-area: 4/2/5/3;
+}
+
+.review-header {
   grid-area: 3/2/4/3;
 }
 

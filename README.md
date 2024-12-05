@@ -1,6 +1,6 @@
 # NOROFF School assignment
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](https://github.com/stiansame/SquareEyes-CMS/blob/main/images/prosjekt1.jpg)
 
 Design a video streaming website where you can purchase high-quality videos directly from the people who make them. The users of this website want to purchase videos right away, which will allow them to watch it online.
 

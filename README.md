@@ -29,7 +29,7 @@ This is where you list how to get the project started. It typically just include
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
+git clone git@github.com:stiansame/SquareEyes-CMS.git
 ```
 
 
